@@ -12,7 +12,7 @@ pub enum ClientError {
     EndpointBuildError { source: anyhow::Error },
     #[error("An error occurred in processing the request")]
     GenericError { source: anyhow::Error },
-    #[error("Error sending HTTP request")]
+    #[error("Error sending HTTP {} request on url {}: {}", .method, .url, .source)]
     RequestError {
         source: anyhow::Error,
         url: String,
